@@ -18,5 +18,7 @@ namespace TopDownShooter
 
         [Range(0.1f, 1.5f)]
         public float fireRate = 0.1f;
+
+        public float meleeRange = 0;
     }
 }

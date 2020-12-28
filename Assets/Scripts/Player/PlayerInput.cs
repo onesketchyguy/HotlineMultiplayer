@@ -1,4 +1,5 @@
 using Mirror;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,21 +18,33 @@ namespace TopDownShooter
 
         private Camera mainCamera;
 
+        private bool initialized;
+
         private bool Initialize()
         {
             if (!hasAuthority) return false;
+
+            Debug.Log("Initialized");
 
             mainCamera = Camera.main;
 
             Controls = new PlayerControls();
             Controls.Enable();
 
+            initialized = true;
+
             return true;
         }
 
         private void OnEnable()
         {
-            if (Initialize() == false) return;
+            if (initialized == false)
+            {
+                Initialize();
+
+                Invoke(nameof(OnEnable), 0.1f);
+                return;
+            }
 
             Controls.Default.AimPosition.performed += AimPosition_performed;
 

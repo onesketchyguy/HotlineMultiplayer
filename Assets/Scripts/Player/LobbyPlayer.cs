@@ -168,8 +168,9 @@ namespace TopDownShooter
         {
             var point = spawnPoints[index].transform;
 
-            player = Instantiate(playerPrefabs[playingAs], point.position, point.rotation).GetComponent<HealthManager>();
-            NetworkServer.Spawn(player.gameObject, connectionToClient);
+            var playerInstance = Instantiate(playerPrefabs[playingAs], point.position, point.rotation);
+            NetworkServer.Spawn(playerInstance, connectionToClient);
+            player = playerInstance.GetComponent<HealthManager>();
         }
     }
 }

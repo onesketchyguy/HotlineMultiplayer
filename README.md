@@ -31,3 +31,4 @@ Possible features to add include:
 • Endless waves mode.
 • Custom skins.
 • Other options for completing levels, such as hacking a terminal or capturing some intel.
+• Fantasy mode, add things like light sabers and a portal gun to the mix.

@@ -16,7 +16,7 @@ namespace TopDownShooter
         }
 
         [ClientRpc]
-        private void RpcSetTrigger(string name)
+        public void RpcSetTrigger(string name)
         {
             anim.SetTrigger(name);
         }

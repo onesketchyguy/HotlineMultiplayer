@@ -127,5 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdbef82ab04bf44d82b3fbd747c54a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drop: {fileID: 3841457860424532950, guid: f953c88e302981f45ba18556864227c1, type: 3}
   spriterenderer: {fileID: 959133736344753110}
   firePoint: {fileID: 1284048803643250864}
+  fireRate: 0.1
+  meleeRange: 0

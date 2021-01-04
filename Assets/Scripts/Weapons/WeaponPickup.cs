@@ -1,4 +1,5 @@
 using UnityEngine;
+using Mirror;
 
 namespace TopDownShooter
 {
@@ -8,13 +9,13 @@ namespace TopDownShooter
 
         protected override void OnPlayerPickup(GameObject sender)
         {
-            base.OnPlayerPickup(sender);
-
             // Pickup this weapon
             var weaponManager = sender.GetComponent<WeaponManager>();
 
             if (weaponManager)
-                weaponManager.EquipWeapon(weapon);
+            {
+                weaponManager.EquipWeapon(this);
+            }
         }
     }
 }

@@ -4,6 +4,8 @@ namespace TopDownShooter
 {
     public class WeaponObject : MonoBehaviour
     {
+        public WeaponPickup drop;
+
         public SpriteRenderer spriterenderer;
 
         public Sprite sprite

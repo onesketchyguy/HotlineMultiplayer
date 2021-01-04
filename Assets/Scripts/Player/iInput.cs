@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TopDownShooter
@@ -13,6 +11,8 @@ namespace TopDownShooter
 
         public OnFire fireStart { get; set; }
         public OnFire altFireStart { get; set; }
+
+        public OnFire onExecution { get; set; }
 
         public OnFire fireEnded { get; set; }
         public OnFire altFireEnded { get; set; }

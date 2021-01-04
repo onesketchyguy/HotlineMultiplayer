@@ -13,6 +13,8 @@ namespace TopDownShooter
         public OnFire fireEnded { get; set; }
         public OnFire altFireEnded { get; set; }
 
+        public OnFire onExecution { get; set; }
+
         // AI NEEDS TO DO THINGS
     }
 }

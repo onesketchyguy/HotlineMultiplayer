@@ -1,13 +1,14 @@
+using Mirror;
 using UnityEngine;
 
 namespace TopDownShooter
 {
     [RequireComponent(typeof(Collider2D))]
-    public class ItemPickup : MonoBehaviour
+    public class ItemPickup : NetworkBehaviour
     {
         protected virtual void OnPlayerPickup(GameObject sender)
         {
-            Debug.Log($"{gameObject.name} being picked up...");
+            Debug.Log($"{gameObject.name} being picked up by {sender.name}...");
             // Do things
         }
 

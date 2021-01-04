@@ -226,7 +226,6 @@ MonoBehaviour:
   syncInterval: 0.1
   healthManager: {fileID: 7039349460863449166}
   toDisableOnDeath:
-  - {fileID: 0}
   - {fileID: 648149276409795418}
   - {fileID: 648149276409795416}
   colliderToDisable: {fileID: 648149276409795428}
@@ -297,6 +296,8 @@ MonoBehaviour:
   syncInterval: 0.1
   controller: {fileID: 648149276409795418}
   weaponDisplay: {fileID: 1667160508946865533}
+  weaponSet: {fileID: 0}
+  currentWeapon: 0
   equippedWeapon: {fileID: 0}
   defaultMeleeRange: 1
   defaultFireRate: 0.5

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Mirror;
 
 namespace TopDownShooter
@@ -16,7 +13,7 @@ namespace TopDownShooter
             var point = transform;
 
             var instance = Instantiate(_object.gameObject, point.position, point.rotation);
-            NetworkServer.Spawn(instance.gameObject, connectionToServer);
+            NetworkServer.Spawn(instance.gameObject);
         }
     }
 }

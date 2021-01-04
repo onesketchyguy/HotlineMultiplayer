@@ -29,5 +29,10 @@ namespace TopDownShooter
 
             onHealthChanged?.Invoke(lastHealth - currentHealth);
         }
+
+        internal void HandleHitEvent(PhysicalObject.ObjectType type)
+        {
+            //throw new System.NotImplementedException();
+        }
     }
 }

@@ -20,31 +20,25 @@ namespace TopDownShooter
                 healthManager = GetComponent<HealthManager>();
         }
 
-        private void Start()
+        public override void OnStartServer()
         {
-            if (hasAuthority == false) return;
+            base.OnStartServer();
 
             healthManager.ModifyHealth(healthManager.StartHealth);
 
-            healthManager.onHealthChanged += (float mod) =>
+            InvokeRepeating(nameof(ServerUpdate), 0, 0.15f);
+        }
+
+        [ServerCallback]
+        public void ServerUpdate()
+        {
+            if (healthManager.isDead)
             {
-                if (healthManager.isDead)
-                {
-                    // Die
-                    animator.CmdSetTrigger("Died");
+                // Die
+                animator.RpcSetTrigger("Died");
 
-                    CmdDisable();
-                }
-
-                if (mod > 0)
-                {
-                    // Got health
-                }
-                else
-                {
-                    // Was hurt
-                }
-            };
+                RpcDisable();
+            }
         }
 
         [Command]

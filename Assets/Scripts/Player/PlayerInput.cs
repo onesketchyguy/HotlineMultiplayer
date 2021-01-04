@@ -14,6 +14,8 @@ namespace TopDownShooter
         public OnFire fireEnded { get; set; }
         public OnFire altFireEnded { get; set; }
 
+        public OnFire onExecution { get; set; }
+
         private PlayerControls Controls;
 
         private Camera mainCamera;

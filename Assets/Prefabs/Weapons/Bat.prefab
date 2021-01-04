@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdbef82ab04bf44d82b3fbd747c54a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drop: {fileID: 8564563852140026936, guid: 71764d653b59e294ab2304732cb25b4f, type: 3}
   spriterenderer: {fileID: 959133736344753110}
   firePoint: {fileID: 0}
   fireRate: 0.5

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 260176181607147977}
   - component: {fileID: 260176181607147978}
   - component: {fileID: 3351856701080529213}
+  - component: {fileID: 2183935247852069625}
   m_Layer: 8
   m_Name: PlayerGhost
   m_TagString: Player
@@ -141,3 +142,11 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!81 &2183935247852069625
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260176181607147988}
+  m_Enabled: 1

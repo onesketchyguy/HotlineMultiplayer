@@ -14,6 +14,8 @@ namespace TopDownShooter
         public string ReadyToggleParentName = "ReadyArea";
         public string ReadyPlayersRegion = "ReadyPlayersRegion";
 
+        public SwitchPicker maskPicker;
+
         [SyncVar]
         public bool isReady;
 
@@ -29,6 +31,7 @@ namespace TopDownShooter
         }
 
         private int playingAs = 0;
+        private int playerMask = 0;
 
         private bool spawning = false;
 
@@ -75,14 +78,25 @@ namespace TopDownShooter
 
         private void Update()
         {
+            if (maskPicker == null)
+            {
+                maskPicker = GetComponentInChildren<SwitchPicker>(); // FIXME: I hate this
+            }
+
             if (allReady == false || player != null)
             {
+                maskPicker.gameObject.SetActive(true);
+
                 players = FindObjectsOfType<LobbyPlayer>();
+
+                playerMask = maskPicker.index;
 
                 if (allReady == false) UpdateReadyObjects();
             }
             else
             {
+                maskPicker.gameObject.SetActive(false);
+
                 if (spawning == false)
                 {
                     spawning = true;
@@ -178,6 +192,7 @@ namespace TopDownShooter
 
             var playerInstance = Instantiate(playerPrefabs[playingAs], point.position, point.rotation);
             NetworkServer.Spawn(playerInstance, connectionToClient);
+            playerInstance.GetComponent<CharacterManager>().RpcSetMask(playerMask);
             player = playerInstance.GetComponent<HealthManager>();
         }
     }

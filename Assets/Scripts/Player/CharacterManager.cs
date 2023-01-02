@@ -14,6 +14,9 @@ namespace TopDownShooter
 
         public CharacterAnimator animator;
 
+        [SerializeField] private SpriteRenderer maskRenderer;
+        [SerializeField] private Sprite[] masks;
+
         private void OnValidate()
         {
             if (healthManager == null)
@@ -27,6 +30,12 @@ namespace TopDownShooter
             healthManager.ModifyHealth(healthManager.StartHealth);
 
             InvokeRepeating(nameof(ServerUpdate), 0, 0.15f);
+        }
+
+        [ClientRpc]
+        public void RpcSetMask(int i)
+        {
+            maskRenderer.sprite = masks[i];
         }
 
         [ServerCallback]

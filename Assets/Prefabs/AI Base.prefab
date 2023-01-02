@@ -229,8 +229,11 @@ MonoBehaviour:
   toDisableOnDeath:
   - {fileID: 648149276409795418}
   - {fileID: 648149276409795416}
+  - {fileID: 1156732753606188572}
   colliderToDisable: {fileID: 648149276409795428}
   animator: {fileID: 3325043932897503334}
+  maskRenderer: {fileID: 0}
+  masks: []
 --- !u!114 &7039349460863449166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,11 +286,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  playerLayer: Player
+  playerLayer: Enemy
   projectilePrefab: {fileID: 2566619202837343113, guid: 34252d64c4809144f853597507d0f275,
     type: 3}
   projectileMount: {fileID: 648149275938118427}
   attClip: {fileID: 0}
+  attType: 1
   fireRate: 0.5
   meleeRange: 1
 --- !u!114 &4284963291068850701
@@ -306,7 +310,7 @@ MonoBehaviour:
   syncInterval: 0.1
   controller: {fileID: 648149276409795418}
   weaponDisplay: {fileID: 1667160508946865533}
-  weaponSet: {fileID: 0}
+  weaponSet: {fileID: 11400000, guid: d12b38ca2d185eb4fb2b23ad6e73f1ef, type: 2}
   tossForce: 10
   currentWeapon: 0
   equippedWeapon: {fileID: 0}
@@ -325,6 +329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34c7f03a1c3f74c9ba75876c5c654c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  wanderPath: []
 --- !u!50 &648149276409795429
 Rigidbody2D:
   serializedVersion: 4
@@ -460,7 +467,7 @@ MonoBehaviour:
   - {x: -0.22738922, y: 0, z: 0}
   m_ShapePathHash: -1931347903
   m_Mesh: {fileID: 0}
-  m_InstanceId: 170990
+  m_InstanceId: 58510
 --- !u!1 &6799957695364987565
 GameObject:
   m_ObjectHideFlags: 0

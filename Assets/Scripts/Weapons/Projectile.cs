@@ -1,6 +1,6 @@
 using UnityEngine;
 using Mirror;
-using static UnityEditor.LightingExplorerTableColumn;
+//using static UnityEditor.LightingExplorerTableColumn;
 
 namespace TopDownShooter
 {

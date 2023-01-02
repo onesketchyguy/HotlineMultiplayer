@@ -163,17 +163,34 @@ namespace TopDownShooter
                 input.altFireStart += () => altFire = true;
                 input.altFireEnded += () => altFire = false;
             }
+            else if (GetComponent<AIInput>())
+            {
+                RpcEquipWeapon(currentWeapon);
+                input = GetComponent<iInput>();
+                input.altFireStart += () => altFire = true;
+                input.altFireEnded += () => altFire = false;
+            }
         }
 
         private void Update()
         {
-            if (hasAuthority == false) return;
-
-            if (altFire && currentWeapon != -1)
+            if (hasAuthority == false)
             {
-                // Toss weapon
+                if (altFire && currentWeapon != -1)
+                {
+                    // Toss weapon
 
-                CmdTossWeapon();
+                    CmdTossWeapon();
+                }
+            }
+            else
+            {
+                if (altFire && currentWeapon != -1)
+                {
+                    // Toss weapon
+
+                    RpcTossWeapon();
+                }
             }
         }
     }

@@ -76,6 +76,20 @@ namespace TopDownShooter
         {
             if (enabled == false) return;
 
+            RpcOnFire();
+        }
+
+        [Command]
+        public void CmdOnPrimaryFireStopped()
+        {
+        }
+
+        // this is called on the tank that fired for all observers
+        [ClientRpc]
+        private void RpcOnFire()
+        {
+            //animator.SetTrigger("Shoot");
+
             if (attClip != null)
             {
                 AudioSource.PlayClipAtPoint(attClip, projectileMount.position);
@@ -107,20 +121,6 @@ namespace TopDownShooter
                     }
                 }
             }
-
-            RpcOnFire();
-        }
-
-        [Command]
-        public void CmdOnPrimaryFireStopped()
-        {
-        }
-
-        // this is called on the tank that fired for all observers
-        [ClientRpc]
-        private void RpcOnFire()
-        {
-            //animator.SetTrigger("Shoot");
         }
 
         [Command]

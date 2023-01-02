@@ -11,7 +11,7 @@ namespace TopDownShooter
     {
         [Header("UI setup")]
         public string ReadyToggleChildName = "ReadyToggle";
-
+        public string ReadyToggleParentName = "ReadyArea";
         public string ReadyPlayersRegion = "ReadyPlayersRegion";
 
         [SyncVar]
@@ -147,8 +147,16 @@ namespace TopDownShooter
                 {
                     // Become active
                     transform.position = player.transform.position;
-
                     gameObject.SetActive(true);
+
+                    // Disable ready button
+                    foreach (var item in GetComponentsInChildren<Transform>())
+                    {
+                        if (item.name == ReadyToggleParentName)
+                        {
+                            item.gameObject.SetActive(false);
+                        }
+                    }
                 }
             };
 

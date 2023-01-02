@@ -7,9 +7,14 @@ namespace TopDownShooter
     {
         public iInput input;
 
+        public string playerLayer = "Player";
+
         public GameObject projectilePrefab;
 
         public Transform projectileMount;
+
+        public AudioClip attClip = null;
+        public PhysicalObject.ObjectType attType = PhysicalObject.ObjectType.Blunt;
 
         [HideInInspector]
         public float fireRate = .5f;
@@ -71,9 +76,15 @@ namespace TopDownShooter
         {
             if (enabled == false) return;
 
+            if (attClip != null)
+            {
+                AudioSource.PlayClipAtPoint(attClip, projectileMount.position);
+            }
+
             if (meleeRange == 0)
             {
                 GameObject projectile = Instantiate(projectilePrefab, projectileMount.position, transform.rotation);
+                projectile.layer = LayerMask.NameToLayer(playerLayer);
                 NetworkServer.Spawn(projectile);
             }
             else
@@ -89,7 +100,11 @@ namespace TopDownShooter
 
                     var health = hit.GetComponent<HealthManager>();
 
-                    if (health != null) health.ModifyHealth(-100);
+                    if (health != null)
+                    {
+                        health.HandleHitEvent(attType);
+                        health.ModifyHealth(-100);
+                    }
                 }
             }
 

@@ -6,7 +6,7 @@ using Mirror.Discovery;
 
 namespace TopDownShooter
 {
-    public class NetworkingHUD : MonoBehaviour
+    public class NetworkingHUD : NetworkBehaviour
     {
         public NetworkDiscovery networkDiscovery
         {
@@ -52,9 +52,10 @@ namespace TopDownShooter
 
         public void StopClient()
         {
-            networkManager.StopClient();
-
             // We need to be able to tell if this is also the host and end that aswell
+
+            if (isClientOnly) networkManager.StopClient();
+            else networkManager.StopHost();
         }
 
         /// Find Servers

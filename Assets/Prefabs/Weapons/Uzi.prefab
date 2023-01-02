@@ -132,3 +132,4 @@ MonoBehaviour:
   firePoint: {fileID: 1284048803643250864}
   fireRate: 0.1
   meleeRange: 0
+  attClip: {fileID: 8300000, guid: 04a361a7efe7d6c44bf035a628aca2f8, type: 3}

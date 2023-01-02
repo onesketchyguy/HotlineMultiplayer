@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92210537390c8f6488b7a6d85da11189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!114 &3841457860424532950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,8 +66,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  pickupRange: 1
-  requireKeyPress: 1
   weapon: {fileID: 8836456266366233679, guid: ae49784d097fec94392485b6eca350aa, type: 3}
 --- !u!212 &3841457860424532948
 SpriteRenderer:

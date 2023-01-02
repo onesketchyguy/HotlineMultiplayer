@@ -1,4 +1,5 @@
 ﻿using Mirror;
+using UnityEngine;
 
 namespace TopDownShooter
 {
@@ -16,6 +17,15 @@ namespace TopDownShooter
         [SyncVar]
         public bool isDead;
 
+        [System.Serializable]
+        private struct HitSound
+        {
+            public PhysicalObject.ObjectType hitType;
+            public AudioClip clip;
+        }
+
+        [SerializeField] private HitSound[] hitSounds = null;
+
         public void ModifyHealth(float mod)
         {
             isDead = currentHealth + mod <= 0;
@@ -32,7 +42,35 @@ namespace TopDownShooter
 
         internal void HandleHitEvent(PhysicalObject.ObjectType type)
         {
-            //throw new System.NotImplementedException();
+            // Play sound
+            foreach (var item in hitSounds)
+            {
+                if (item.hitType == type)
+                {
+                    AudioSource.PlayClipAtPoint(item.clip, transform.position);
+
+                    break;
+                }
+            }
+
+            // Handle effect
+            switch (type)
+            {
+                //Won't do damage or knock over the target.
+                case PhysicalObject.ObjectType.Light:
+                    // FIXME: React
+                    break;
+                //Will knock over the target.
+                case PhysicalObject.ObjectType.Blunt:
+                    // FIXME: Fall unconscious
+                    break;
+                //Has a high chance of killing the target.
+                case PhysicalObject.ObjectType.Sharp:
+                    // FIXME: Bleed
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

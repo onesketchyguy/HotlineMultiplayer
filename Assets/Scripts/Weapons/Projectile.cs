@@ -1,5 +1,6 @@
 using UnityEngine;
 using Mirror;
+using static UnityEditor.LightingExplorerTableColumn;
 
 namespace TopDownShooter
 {
@@ -8,6 +9,7 @@ namespace TopDownShooter
         public float destroyAfter = 5;
         public Rigidbody2D rigidBody;
         public float force = 1000;
+        public PhysicalObject.ObjectType attType = PhysicalObject.ObjectType.Sharp;
 
         public float damage = 100;
 
@@ -18,7 +20,7 @@ namespace TopDownShooter
 
         // set velocity for server and client. this way we don't have to sync the
         // position, because both the server and the client simulate it.
-        private void Start()
+        private void OnEnable()
         {
             rigidBody.AddForce(transform.right * force);
         }
@@ -40,6 +42,7 @@ namespace TopDownShooter
             if (health)
             {
                 health.ModifyHealth(-damage);
+                health.HandleHitEvent(attType);
             }
 
             NetworkServer.Destroy(gameObject);

@@ -22,5 +22,8 @@ namespace TopDownShooter
         public float fireRate = 0.1f;
 
         public float meleeRange = 0;
+
+        public AudioClip attClip = null;
+        public PhysicalObject.ObjectType attType = PhysicalObject.ObjectType.Blunt;
     }
 }

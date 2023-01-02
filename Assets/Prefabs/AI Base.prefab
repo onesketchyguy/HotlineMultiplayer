@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4924199450078472051}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: WeaponMount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 648149275938118427}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: ProjectileMount
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 648149276204197128}
   - component: {fileID: 648149276204197129}
   - component: {fileID: 2814354053603160252}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: CharacterSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &2814354053603160252
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -161,10 +161,11 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &648149276409795425
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +188,7 @@ GameObject:
   - component: {fileID: 3496504760640159881}
   - component: {fileID: 3325043932897503334}
   - component: {fileID: 2016443833683598758}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: AI Base
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -247,6 +248,13 @@ MonoBehaviour:
   StartHealth: 100
   currentHealth: 0
   isDead: 0
+  hitSounds:
+  - hitType: 1
+    clip: {fileID: 8300000, guid: 326ac179b25dc0648b081d738b07e8d7, type: 3}
+  - hitType: 0
+    clip: {fileID: 8300000, guid: 3b7bc5dfb80d92c478b309fc9c978d16, type: 3}
+  - hitType: 2
+    clip: {fileID: 8300000, guid: 92e13644c62e07947a1c4072eea86ef6, type: 3}
 --- !u!114 &648149276409795416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,9 +283,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  playerLayer: Player
   projectilePrefab: {fileID: 2566619202837343113, guid: 34252d64c4809144f853597507d0f275,
     type: 3}
   projectileMount: {fileID: 648149275938118427}
+  attClip: {fileID: 0}
   fireRate: 0.5
   meleeRange: 1
 --- !u!114 &4284963291068850701
@@ -297,10 +307,12 @@ MonoBehaviour:
   controller: {fileID: 648149276409795418}
   weaponDisplay: {fileID: 1667160508946865533}
   weaponSet: {fileID: 0}
+  tossForce: 10
   currentWeapon: 0
   equippedWeapon: {fileID: 0}
   defaultMeleeRange: 1
   defaultFireRate: 0.5
+  altFire: 0
 --- !u!114 &1156732753606188572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,7 +460,7 @@ MonoBehaviour:
   - {x: -0.22738922, y: 0, z: 0}
   m_ShapePathHash: -1931347903
   m_Mesh: {fileID: 0}
-  m_InstanceId: 109288
+  m_InstanceId: 170990
 --- !u!1 &6799957695364987565
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3093730204191516187}
   - component: {fileID: 1667160508946865533}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: WeaponSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
